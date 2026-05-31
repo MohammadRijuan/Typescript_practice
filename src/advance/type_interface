@@ -1,0 +1,61 @@
+// type interface
+
+
+type User = {
+    name : string,
+    age : number
+}
+
+
+// interface : object ype: array, object,function
+
+interface Iuser {
+    name : string,
+    age : number
+}
+
+type Role = {
+    role : "admin" | "user";
+}
+
+interface IuserWithRole extends Iuser {
+    role : "admin" | "user";
+}
+
+
+
+const user1 : UserWithRole = {
+    name : 'Rijuan',
+    age : 20,
+    role : 'admin'
+}
+
+
+
+type UserWithRole = User & Role;
+
+
+const user2 : Iuser = {
+    name : 'Monju',
+    age : 18
+}
+
+
+
+// function
+
+
+type Add = (num1:number , num2:number) => number;
+//alternative 
+interface IAdd {
+    (num1:number , num2:number): number;
+}
+
+
+const add : IAdd = (num1,num2) => num1+num2;
+
+console.log(add(2,3));
+
+//for function and array we will use type alias but for object we can use interface
+
+
