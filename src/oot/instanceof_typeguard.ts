@@ -28,11 +28,41 @@ class Teacher extends Person{
     }
 }
 
+
+// first way
+
+
+
+// const getUserinfo = ( user: Person)=>{
+//     if( user instanceof Student){ // type guard using instanceof
+//         return user.Study(5);
+//     }
+//     else if ( user instanceof Teacher){
+//         return user.EarnMoney(5);
+//     }
+//     else {        return `the user ${user.name} is neither a student nor a teacher`;
+//     }
+// }
+
+
+
+// 2nd another way
+
+const isStudent = (user: Person)=>{
+    return user instanceof Student; // type guard using instanceof // will give true or false
+
+}
+
+const isTeacher = (user: Person)=>{ 
+    return user instanceof Teacher; // type guard using instanceof // will give true or false
+
+}
+
 const getUserinfo = ( user: Person)=>{
-    if( user instanceof Student){ // type guard using instanceof
+    if(isStudent(user)){ // type guard using instanceof
         return user.Study(5);
     }
-    else if ( user instanceof Teacher){
+    else if ( isTeacher(user)){
         return user.EarnMoney(5);
     }
     else {        return `the user ${user.name} is neither a student nor a teacher`;
